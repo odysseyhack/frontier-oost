@@ -1,0 +1,34 @@
+@import "../../theme.scss";
+
+.page-footer {
+  margin-top: 100px;
+  padding: 20px;
+  color: white;
+  background-color: black;
+  clear: both;
+}
+
+.page-footer ul.link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.gray,
+.gray a,
+.gray a:hover {
+  color: $gray-500;
+}
+
+.page-footer ul.link-list a {
+  text-decoration: none;
+}
+
+.page-footer ul.link-list a:hover {
+  text-decoration: underline;
+}
+
+.page-footer i.fas,
+.page-footer i.fab {
+  width: 25px;
+  text-align: center;
+}

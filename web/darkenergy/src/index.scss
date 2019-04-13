@@ -1,0 +1,24 @@
+@import "theme";
+@import "~bootstrap/scss/bootstrap";
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts" !default;
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+
+/*
+    LAYOUT
+*/
+
+html,
+body,
+#root {
+  min-height: 100vh;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+.page {
+  min-height: 90vh;
+}
