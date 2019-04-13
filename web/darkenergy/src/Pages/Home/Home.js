@@ -22,8 +22,8 @@ export class Home extends Component {
       <div className="page animated fadeIn faster">
         <div className="container">
 
-          <div class="row text-center" style="margin-top:60px;margin-bottom:60px;">
-            <div class="col-sm">
+          <div className="row text-center" style="margin-top:60px;margin-bottom:60px;">
+            <div className="col-sm">
               <h1><strong>My proceeds</strong></h1>
               <h5>Year 2019</h5>
             </div>
