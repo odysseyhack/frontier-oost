@@ -46,19 +46,23 @@ body,
 }
 
 .big-icon {
-  font-size: 5rem;
+  font-size: 4rem;
   color: #D1D1D6;
+  margin-bottom: 60px;
   &__bolt {
-    font-size: 5rem;
+    font-size: 4rem;
     color: #FFCC00;
+    margin-bottom: 60px;
   }
   &__medal {
-    font-size: 5rem;
+    font-size: 4rem;
     color: #007AFF;
+    margin-bottom: 60px;
   }
   &__green {
-    font-size: 5rem;
+    font-size: 4rem;
     color: #4CD964;
+    margin-bottom: 60px;
   }
 }
 
@@ -72,5 +76,13 @@ body,
 
 .btn-primary {
   color: white;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.card-body {
+  margin: 40px 20px 20px 20px;
 }
 

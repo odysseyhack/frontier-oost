@@ -34,7 +34,7 @@ export class Home extends Component {
 
           <div class="row text-center" style="margin-top:60px;margin-bottom:60px;">
             <div class="col-sm">
-              <h1><strong>Mijn energiebronnen</strong></h1>
+              <h2><strong>Mijn energiebronnen</strong></h2>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ export class Home extends Component {
               </div>
               <div class="card-body">
                 <p class="fas fa-tachometer-alt big-icon"></p>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Stop delen</button>
+                <button type="button" class="btn btn-lg btn-block btn-primary">Start met delen</button>
               </div>
             </div>
 
@@ -75,7 +75,7 @@ export class Home extends Component {
               </div>
               <div class="card-body">
                 <p class="fas fa-plug big-icon"></p>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Stop delen</button>
+                <button type="button" class="btn btn-lg btn-block btn-primary">Start met delen</button>
               </div>
             </div>
 
