@@ -30,7 +30,7 @@ public class MyGvoLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     private static final Logger log = LoggerFactory.getLogger(MyGvoLoader.class);
 
-    private static final String ETH_MY_GVO_CONTRACT_ADDRESS = "0x92c85ce35B4f59Da8d85AFfe3F3B55E83A78d37C";
+    private static final String ETH_MY_GVO_CONTRACT_ADDRESS = "0xFF542cdF012C9BCDcBABC67C15968131efD10781";
 
     private Web3j web3j;
 

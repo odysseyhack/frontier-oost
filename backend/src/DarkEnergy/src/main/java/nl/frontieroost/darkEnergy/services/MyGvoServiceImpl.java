@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.web3j.abi.datatypes.Address;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -45,6 +46,7 @@ public class MyGvoServiceImpl implements MyGvoService
         this.myGvoContract = myGvoContract;
     }
 
+
     @Override
     public int getTotalSupply()
     {
@@ -62,6 +64,12 @@ public class MyGvoServiceImpl implements MyGvoService
     public boolean mint(String to, int tokenId) throws Exception
     {
         return myGvoContract.mint(to, BigInteger.valueOf(tokenId)).send().isStatusOK();
+    }
+
+    @Override
+    public boolean mintToZipCodeAddress(String zipCode, int tokenId) throws Exception
+    {
+        return myGvoContract.mintToZipCode(zipCode, BigInteger.valueOf(tokenId)).send().isStatusOK();
     }
 
     @Override

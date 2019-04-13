@@ -42,12 +42,13 @@ public class MgvoController
         return null;
     }
 
-    @RequestMapping(value = "/myGvo/mint/tokenId", method = RequestMethod.POST)
-    public boolean mintMyGvoToken(@RequestParam String to, @RequestParam Integer tokenId) {
+    @RequestMapping(value = "/myGvo/payout/zipCodeAddress/{zipCodeAddress}", method = RequestMethod.POST)
+    public boolean mintMyGvoToken(@RequestParam String zipCodeAddress, @RequestParam Integer tokenId) {
         if (tokenId >= 0) {
             try
             {
-                return myGvoService.mint(to, tokenId);
+                return myGvoService.mintToZipCodeAddress(zipCodeAddress, tokenId);
+
             }
             catch (Exception e)
             {

@@ -16,6 +16,8 @@ public interface MyGvoService
 
     boolean mint(String to, int tokenId) throws Exception;
 
+    boolean mintToZipCodeAddress(String zipCode, int tokenId) throws Exception;
+
     boolean burn(int tokenId) throws Exception;
 
     String ownerOf(int tokenId) throws Exception;

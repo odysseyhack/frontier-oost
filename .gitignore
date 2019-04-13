@@ -6,7 +6,9 @@
 /build
 
 # dependencies
-/node_modules
+web/darkenergy/node_modules
+
+backend/src/DarkEnergy/wallets/*
 
 # IDEs and editors
 /.idea
@@ -42,4 +44,3 @@ testem.log
 Thumbs.db
 /package-lock.json
 
-/node_modules
