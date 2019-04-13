@@ -7,6 +7,9 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 
+
+$primary-color: #4CD964;
+
 /*
     LAYOUT
 */
@@ -22,3 +25,52 @@ body,
 .page {
   min-height: 90vh;
 }
+
+.navbar {
+  background-color: $primary-color;
+}
+
+.navbar-brand {
+  color: white;
+  &:hover {
+    color:white;
+  }
+}
+
+.primary {
+  background-color: $primary-color;
+  color: $white;
+  &:hover {
+    color:white;
+  }
+}
+
+.big-icon {
+  font-size: 5rem;
+  color: #D1D1D6;
+  &__bolt {
+    font-size: 5rem;
+    color: #FFCC00;
+  }
+  &__medal {
+    font-size: 5rem;
+    color: #007AFF;
+  }
+  &__green {
+    font-size: 5rem;
+    color: #4CD964;
+  }
+}
+
+.primary-text {
+  font-size: 5rem;
+}
+
+.secondary-text {
+  font-size: 2.5rem;
+}
+
+.btn-primary {
+  color: white;
+}
+
