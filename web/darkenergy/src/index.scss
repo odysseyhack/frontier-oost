@@ -45,25 +45,29 @@ body,
   }
 }
 
-.big-icon {
+%big-icon {
   font-size: 4rem;
   color: #D1D1D6;
   margin-bottom: 60px;
-  &__bolt {
-    font-size: 4rem;
-    color: #FFCC00;
-    margin-bottom: 60px;
-  }
-  &__medal {
-    font-size: 4rem;
-    color: #007AFF;
-    margin-bottom: 60px;
-  }
-  &__green {
-    font-size: 4rem;
-    color: #4CD964;
-    margin-bottom: 60px;
-  }
+}
+
+.big-icon {
+  @extend %big-icon;
+}
+
+.big-icon__bolt {
+  @extend %big-icon;
+  color: #FFCC00;
+}
+
+.big-icon__medal {
+  @extend %big-icon;
+  color: #007AFF;
+}
+
+.big-icon__green {
+  @extend %big-icon;
+  color: #4CD964;
 }
 
 .primary-text {
