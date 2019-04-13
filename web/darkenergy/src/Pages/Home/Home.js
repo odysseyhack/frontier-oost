@@ -5,16 +5,67 @@ export class Home extends Component {
   constructor(props){
     super(props);
     this.props = props;
-    this.state = { item: { Horsepower: 0} };
+    this.state = { 
+      powerOptions: {
+        solarPanels: true,
+        windenergy: false,
+        smartEnergyMeter: true,
+        Outlets: true
+      }, 
+      item: { Horsepower: 0} };
+
+    //bindings
+    this.toggleSolarEnergy = this.toggleSolarEnergy.bind(this);
+    this.toggleWindEnergy = this.toggleWindEnergy.bind(this);
+    this.toggleSmartEnergyMeter = this.toggleSmartEnergyMeter.bind(this);
+    this.toggleOutlets = this.toggleOutlets.bind(this);
+  }
+
+  toggleSolarEnergy(e) {
+    var powerOptions = this.state.powerOptions;
+    powerOptions.solarPanels = !powerOptions.solarPanels
+
+    this.setState({powerOptions: powerOptions})
+  }
+
+  toggleWindEnergy(e) {
+    var powerOptions = this.state.powerOptions;
+    powerOptions.windenergy = !powerOptions.windenergy
+
+    this.setState({powerOptions: powerOptions})
+  }
+
+  toggleSmartEnergyMeter(e) {
+    var powerOptions = this.state.powerOptions;
+    powerOptions.smartEnergyMeter = !powerOptions.smartEnergyMeter
+
+    this.setState({powerOptions: powerOptions})
+  }
+
+  toggleOutlets(e) {
+    var powerOptions = this.state.powerOptions;
+    powerOptions.Outlets = !powerOptions.Outlets
+
+    this.setState({powerOptions: powerOptions})
   }
 
   componentDidMount(){
     fetch('https://storage.googleapis.com/tfjs-tutorials/carsData.json')
     .then(result => result.json())
     .then(beterresult => {
-      console.log(beterresult[0])
       this.setState( {item: beterresult[0]});
     });
+  }
+
+  getEnergyButton(isEnabled, onClick){
+    if(isEnabled) {
+      return <button type="button" class="btn btn-lg btn-block btn-secondary" onClick={onClick}>Stop sharing</button>
+    }
+    return <button type="button" class="btn btn-lg btn-block btn-primary" onClick={onClick}>Start sharing</button>
+  }
+
+  getEnabledClassForIcons(enabled, baseClass) {
+    return enabled ? baseClass + " big-icon__green" : baseClass + " big-icon";
   }
 
   render() {
@@ -59,8 +110,8 @@ export class Home extends Component {
                 <h4 class="my-0 font-weight-normal">Solar panels</h4>
               </div>
               <div class="card-body">
-                <p class="fas fa-solar-panel big-icon__green"></p>
-                <button type="button" class="btn btn-lg btn-block btn-secondary">Stop sharing</button>
+                <p className={this.getEnabledClassForIcons(this.state.powerOptions.solarPanels, "fas fa-solar-panel")}></p>
+                { this.getEnergyButton(this.state.powerOptions.solarPanels, this.toggleSolarEnergy) }
               </div>
             </div>
 
@@ -69,8 +120,8 @@ export class Home extends Component {
                 <h4 class="my-0 font-weight-normal">Wind energy</h4>
               </div>
               <div class="card-body">
-                <p class="fas fa-wind big-icon"></p>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Start sharing</button>
+                <p className={this.getEnabledClassForIcons(this.state.powerOptions.windenergy, "fas fa-wind")}></p>
+                { this.getEnergyButton(this.state.powerOptions.windenergy, this.toggleWindEnergy) }
               </div>
             </div>
 
@@ -79,8 +130,8 @@ export class Home extends Component {
                 <h4 class="my-0 font-weight-normal">Smart energy meter</h4>
               </div>
               <div class="card-body">
-                <p class="fas fa-tachometer-alt big-icon"></p>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Start sharing</button>
+                <p className={this.getEnabledClassForIcons(this.state.powerOptions.smartEnergyMeter, "fas fa-tachometer-alt")}></p>
+                { this.getEnergyButton(this.state.powerOptions.smartEnergyMeter, this.toggleSmartEnergyMeter) }
               </div>
             </div>
 
@@ -89,8 +140,8 @@ export class Home extends Component {
                 <h4 class="my-0 font-weight-normal">Outlets</h4>
               </div>
               <div class="card-body">
-                <p class="fas fa-plug big-icon"></p>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Start sharing</button>
+                <p className={this.getEnabledClassForIcons(this.state.powerOptions.Outlets, "fas fa-plug")}></p>
+                { this.getEnergyButton(this.state.powerOptions.Outlets, this.toggleOutlets) }
               </div>
             </div>
 
