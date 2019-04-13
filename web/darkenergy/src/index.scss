@@ -1,0 +1,92 @@
+@import "theme";
+@import "~bootstrap/scss/bootstrap";
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts" !default;
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+
+
+$primary-color: #4CD964;
+
+/*
+    LAYOUT
+*/
+
+html,
+body,
+#root {
+  min-height: 100vh;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+.page {
+  min-height: 90vh;
+}
+
+.navbar {
+  background-color: $primary-color;
+}
+
+.navbar-brand {
+  color: white;
+  &:hover {
+    color:white;
+  }
+}
+
+.primary {
+  background-color: $primary-color;
+  color: $white;
+  &:hover {
+    color:white;
+  }
+}
+
+%big-icon {
+  font-size: 4rem;
+  color: #D1D1D6;
+  margin-bottom: 60px;
+}
+
+.big-icon {
+  @extend %big-icon;
+}
+
+.big-icon__bolt {
+  @extend %big-icon;
+  color: #FFCC00;
+}
+
+.big-icon__medal {
+  @extend %big-icon;
+  color: #007AFF;
+}
+
+.big-icon__green {
+  @extend %big-icon;
+  color: #4CD964;
+}
+
+.primary-text {
+  font-size: 5rem;
+}
+
+.secondary-text {
+  font-size: 2.5rem;
+}
+
+.btn-primary {
+  color: white;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.card-body {
+  margin: 40px 20px 20px 20px;
+}
+

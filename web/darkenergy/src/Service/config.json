@@ -1,0 +1,18 @@
+{
+  "auth": {
+    "domain": "yolofy.eu.auth0.com",
+    "clientID": "8gd56JufA84Bqq7aEMmk7Wz4XTXXEegR",
+    "redirectUri": "http://localhost:3000/callback",
+    "responseType": "token id_token",
+    "scope": "openid"
+  },
+  "company": {
+    "name": "darkenergy.nl",
+    "email": "hoi@darkenergy.nl",
+    "chamberOfCommerceNumber": "12345678",
+    "form": "B.V.",
+    "postalCode": "7411 HW",
+    "address": "Singel 25",
+    "city": "Deventer"
+  }
+}
