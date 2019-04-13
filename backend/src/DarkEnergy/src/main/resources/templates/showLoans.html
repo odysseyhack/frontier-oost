@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+    <title>AMS| Loans </title>
+</head>
+
+<body class="layout-with-header layout-with-footer layout-with-sidebar">
+
+<div class="layout--header">
+    <!-- Insert your header -->
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+</div>
+
+
+<div class="layout--wrapper">
+
+    <div class="layout--sidebar">
+        <!-- Insert your sidebar -->
+        <div class="sidebar">
+            <div class="sidemenu">
+                <!-- Repeat for each menu -->
+                <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+            </div>
+            <!--/*/ <th:block th:include="fragments/backbutton :: backbutton"></th:block> /*/-->
+        </div>
+    </div>
+
+    <div class="layout--content">
+        <div class="content--header">
+        </div>
+
+        <!-- Insert your content -->
+        <div class="container">
+            <h2 class="color-primary">All Loans</h2>
+            <h4 class="color-secondary" th:if="${loanCount != null}"><span th:text="${loanCount}"></span> new
+                loan(s) loaded
+                from smart
+                contract
+            </h4>
+            <div class="column">
+                <div class="column--item">
+                    <div class="panel">
+                        <div th:if="${not #lists.isEmpty(loans)}">
+
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Product Id</th>
+                                    <th>Customer address</th>
+                                    <th>Lender</th>
+                                    <th>View</th>
+                                </tr>
+                                <tr th:each="loan : ${loans}">
+                                    <td th:text="${loan.productId}">Product Id</td>
+                                    <td th:text="${loan.customerAddress}">Customer address</td>
+                                    <td th:text="${loan.lender}">lender</td>
+                                    <td><a th:href="${ '/loan/' + loan.productId}">View</a></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a th:href="${ '/loans/loadFromSc'}" class="button--primary">Load Loans from Smart
+                    Contract</a>
+            </div>
+        </div>
+
+        <div class="content--footer">
+        </div>
+    </div>
+</div>
+
+<div class="layout--footer">
+    <!-- Insert your footer -->
+</div>
+</body>
+
+</html>

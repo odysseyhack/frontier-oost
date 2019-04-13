@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body class="layout-with-header layout-with-footer layout-with-sidebar">
+
+<div class="layout--header">
+    <!-- Insert your header -->
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+</div>
+
+
+<div class="layout--wrapper">
+
+    <div class="layout--sidebar">
+        <!-- Insert your sidebar -->
+        <div class="sidebar">
+            <div class="sidemenu">
+                <!-- Repeat for each menu -->
+                <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+            </div>
+            <!--/*/ <th:block th:include="fragments/backbutton :: backbutton"></th:block> /*/-->
+        </div>
+    </div>
+
+    <div class="layout--content">
+        <div class="content--header">
+        </div>
+
+
+        <!-- Insert your content -->
+        <div class="row text-center">
+            <div class="text-primary">
+                <h2 class="color-primary">An error occurred</h2>
+            </div>
+        </div>
+
+        <div class="content--footer">
+        </div>
+    </div>
+</div>
+
+<div class="layout--footer">
+    <!-- Insert your footer -->
+</div>
+</body>
+
+
+</html>

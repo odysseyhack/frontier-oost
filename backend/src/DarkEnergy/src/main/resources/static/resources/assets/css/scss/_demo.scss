@@ -1,0 +1,25 @@
+.answer {
+    button {
+        display: table-cell;
+    }
+}
+
+.header .header--top .header--usermenu .usermenu-item-reset .usermenu-icon::before {
+    content: "\f079";
+}
+
+.para-def {
+    margin-bottom: 1rem;
+}
+
+td.label-prog, td.percen{
+    padding-right: 2rem;
+}
+
+td.full{
+    width: 100%;
+}
+
+#resultpanel {
+    display: none;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+    <title>AMS| Coordinates from Asset</title>
+</head>
+
+<body class="layout-with-header layout-with-footer layout-with-sidebar">
+
+<div class="layout--header">
+    <!-- Insert your header -->
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+</div>
+
+
+<div class="layout--wrapper">
+
+    <div class="layout--sidebar">
+        <!-- Insert your sidebar -->
+        <div class="sidebar">
+            <div class="sidemenu">
+                <!-- Repeat for each menu -->
+                <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+            </div>
+            <!--/*/ <th:block th:include="fragments/backbutton :: backbutton"></th:block> /*/-->
+        </div>
+    </div>
+
+    <div class="layout--content">
+        <div class="content--header">
+        </div>
+
+
+        <!-- Insert your content -->
+        <div class="container">
+            <div th:if="${not #lists.isEmpty(telemetrys)}">
+                <h2 class="color-primary">Telemetry belonging to <span th:text="${asset.assetIdentifier}">assetidentifier</span>
+                </h2>
+
+                <div class="column">
+                    <div class="column--item">
+                        <div class="panel">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Timestamp (id)</th>
+                                    <th>Cropheight in CM</th>
+                                    <th>Ricestage</th>
+                                    <th>Ricestage flooded</th>
+                                    <th>Cropheight Details</th>
+                                </tr>
+                                <tr th:each="telemetry : ${telemetrys}">
+                                    <td th:text="${#dates.format(telemetry.ts, 'dd-MM-yyyy')}">Timestamp</td>
+                                    <td th:text="${telemetry.cropheight.averageCropheightInCM}">Cropheight</td>
+                                    <td>
+                                        <a th:href="${ '/asset/' + asset.id + '/assetData/telemetry/' + telemetry.ts + '/ricestage'}">View
+                                            Ricestage</a></td>
+                                    <td>
+                                        <a th:href="${ '/asset/' + asset.id + '/assetData/telemetry/' + telemetry.ts + '/ricestageFlooded'}">View
+                                            Ricestage
+                                            flooded</a></td>
+                                    <td>
+                                        <a th:href="${ '/asset/' + asset.id + '/assetData/telemetry/' + telemetry.ts + '/cropheight'}">View
+                                            Cropheight</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4 th:if="${#lists.isEmpty(telemetrys)}">No Telemetry found. Press button to load from SarVision </h4>
+                <a th:href="${ '/asset/' + asset.id + '/getDataSample'}" class="button--primary">Load Telemetry </a>
+            </div>
+        </div>
+
+        <div class="content--footer">
+        </div>
+    </div>
+</div>
+
+<div class="layout--footer">
+    <!-- Insert your footer -->
+</div>
+</body>
+</html>

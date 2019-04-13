@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>AMS| Asset details </title>
+</head>
+
+<body class="layout-with-header layout-with-footer layout-with-sidebar">
+
+<div class="layout--header">
+    <!-- Insert your header -->
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+</div>
+
+
+<div class="layout--wrapper">
+
+    <div class="layout--sidebar">
+        <!-- Insert your sidebar -->
+        <div class="sidebar">
+            <div class="sidemenu">
+                <!-- Repeat for each menu -->
+                <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+            </div>
+            <!--/*/ <th:block th:include="fragments/backbutton :: backbutton"></th:block> /*/-->
+        </div>
+    </div>
+
+    <div class="layout--content">
+        <div class="content--header">
+        </div>
+
+
+        <!-- Insert your content -->
+
+
+        <div class="container">
+            <div th:unless="${coordinate.isNew()}">
+                <h2 class="color-primary">Edit Coordinate</h2>
+            </div>
+            <div th:if="${coordinate.isNew()}">
+                <h2 class="color-primary">Add Coordinate</h2>
+            </div>
+            <div class="column">
+                <div class="column--item">
+                    <div class="panel">
+                        <form class="form-horizontal" th:object="${coordinate}" th:action="@{/coordinate}"
+                              method="post">
+                            <input type="hidden" th:field="*{id}"/>
+                            <input type="hidden" th:field="*{asset}"/>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Latitude:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" th:field="*{longitude}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Longitude:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" th:field="*{latitude}"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--<a th:href="${ '/asset/' + id +'/coordinates'}" class="btn btn-default">Cancel</a>-->
+                <button type="submit" class="button--primary">Submit</button>
+            </div>
+        </div>
+
+
+        <div class="content--footer">
+        </div>
+    </div>
+</div>
+
+<div class="layout--footer">
+    <!-- Insert your footer -->
+</div>
+</body>
+
+</html>

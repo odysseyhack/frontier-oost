@@ -1,0 +1,242 @@
+.center-model{
+    height: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 2000;
+    top: 50%;
+    width:100%;
+}
+
+.formula-viewer{
+	max-width: 900px; 
+	min-width: 400px;
+	padding: 20px;
+	background-color: #fff;
+	text-align: left;
+	
+	//transform: translate(0, -50%);
+
+	//top: 50%;
+	padding: 20px;
+	overflow: auto;
+	margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+	
+	.formula-value{
+		width: 100%;
+		display: block; 
+		margin-bottom: 2px;
+	}
+	.period-date{
+		font-size: 11px;
+	}
+	.contentnavbar{
+		width: auto;
+	}
+}
+
+.formula-info-icon{
+	position: absolute;
+	color: #333;
+	text-align: center;
+	border-radius: 50px;
+	
+	font-size: 11px;
+	cursor: pointer;
+	padding: 2px;
+	white-space: nowrap;
+
+	&:hover{
+		color: #FFF;
+		background-color: #5a7cab;
+	}
+	&:before { 
+		font-family: "fonticon-formula";
+		font-style: normal;
+		font-weight: normal;
+		speak: none;
+ 
+		display: inline-block;
+		text-decoration: inherit;
+		width: 1em;
+		margin-right: .2em;
+		text-align: center;
+  
+		font-variant: normal;
+		text-transform: none;
+ 		line-height: 1em;
+ 		margin-left: .2em;
+ 		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		content: '\e800'; 
+	}
+	.explain-text{
+		vertical-align: middle;
+		font-weight: normal;
+		display: none;
+		padding-right: 4px;
+		padding-left: 4px;
+	}
+}
+
+.formulaBreadcrumb{
+	li{
+		display: inline-block;
+	}
+}
+
+.breadCrumb--formula {
+	display: block;
+	padding: 0;
+	
+	ul {
+		display: block;
+		height: 20px;
+		margin: 0;
+		padding: 0;
+	}
+		
+	li {
+		background: url(img/Chevron.gif) no-repeat 100% 0;
+		display: inline-block;
+		margin: 0px 6px 0px 0;
+		overflow: hidden;
+		padding: 0px 10px 0px 0;
+		font-size: 10px;
+		line-height: 21px;
+	}
+}
+
+.formula-display{
+	vertical-align: middle;
+	text-align: center;
+	display: inline-block;
+	padding-top: 15px;
+    width:100%;
+	
+	.formula-element{
+		display: inline-block;
+		border-radius: 5px;
+		padding-left: 2px;
+        padding-right: 2px;
+		vertical-align: middle;
+        cursor: move;
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+        
+        &:active { 
+            cursor: grabbing;
+            cursor: -moz-grabbing;
+            cursor: -webkit-grabbing;
+        }
+	}
+}
+.formula-element{
+	span{
+		display: inline-block;
+		border-radius: 5px;
+	}
+	.OPERATOR{
+		background-color: #575757;
+		color: #FFFFFF;
+		padding: 0px 7px;
+		font-weight: bold;
+		font-size: 15px;
+	}
+	.IDENTIFIER{
+	}
+	.VALUE, .NUMBER{
+		background-color: #589bce;
+    	color: white;
+    	padding: 2px 4px;
+    	margin-left: 3px;
+        
+        &.INPUT {
+            padding: 5px 15px 5px 5px;
+            input{
+                width: 100px;
+                padding: 2px;
+                overflow: hidden;
+                color: #333;
+                text-align: center;
+                line-height: 1.2rem;
+            }
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                appearance: none !important;
+                margin: 0; 
+            }
+            input[type="number"] {
+                -moz-appearance: textfield !important;
+            }
+        }
+	}
+	.COLUMN_EXTENSION{
+	}
+	.BEGIN_ARGUMENT_LIST, .BEGIN_PARENTHESIZED_EXPRESSION{
+		font-size: 25px;
+		margin-top: -5px;
+	}
+	.END_ARGUMENT_LIST, .END_PARENTHESIZED_EXPRESSION{
+		font-size: 25px;
+		margin-top: -5px;
+	}
+	.SEPERATOR{
+		font-size: 25px;
+		margin-top: -5px;
+	}
+	.BEGIN_CELL_SPECIFIER{
+		padding: 3px 5px;
+		background-color: #CCCCCC;
+	}
+	.END_CELL_SPECIFIER{
+		padding: 3px 5px;
+		background-color: #CCCCCC;
+	}
+	.COLUMN{
+		padding: 3px 7px;
+		background-color: lighten(#F2B054, 20%);
+	}
+	.VARIABLE, .CONSTANT{
+		padding: 5px;
+		background-color: #d1e4f2;
+		margin-bottom: 2px;
+		color: #333;
+	}
+	.FUNCTION{
+		padding: 1rem;
+		border: 1px solid #ccc;
+		margin-bottom: 2px;
+		&> div > .IDENTIFIER{
+			background-color: #575757;
+			color: #FFFFFF;
+			padding: 5px 7px;
+			font-weight: bold;
+			font-size: inherit;
+		}
+	}
+	.operator-seperator{
+		display: block; 
+		border-bottom: 2px black solid; 
+		margin: 3px 0px;
+	}
+	.period-column{
+		font-size: 10px;
+	}
+}
+
+
+.grid.formula-toolbar{
+    background-color: papayawhip;
+    
+    .grid-24{
+        padding: 0.5rem 1rem 0.25rem;
+    }
+}

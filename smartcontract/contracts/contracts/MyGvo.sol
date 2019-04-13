@@ -1,8 +1,10 @@
 pragma solidity ^0.5.2;
 
-import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol';
-import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol';
-import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Burnable.sol';
+
+// import "./test.sol";
+import "./openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
+import "./openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol";
+import "./openzeppelin-solidity/contracts/token/ERC721/ERC721Burnable.sol";
 
 contract MyGvo is ERC721Full, ERC721Mintable, ERC721Burnable {
   constructor() ERC721Full("MyGvo", "MGVO") public {

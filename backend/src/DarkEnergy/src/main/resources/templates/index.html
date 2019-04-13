@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+
+    <title>Asset Monitoring Service</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body class="layout-with-sidebar layout-with-header layout-with-footer ">
+
+<div class="layout--header">
+    <!-- Insert your header -->
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+</div>
+
+
+<div class="layout--wrapper">
+
+    <div class="layout--sidebar">
+        <!-- Insert your sidebar -->
+        <div class="sidebar">
+            <div class="sidemenu">
+                <!-- Repeat for each menu -->
+                <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+            </div>
+            <!--/*/ <th:block th:include="fragments/backbutton :: backbutton"></th:block> /*/-->
+        </div>
+    </div>
+
+    <div class="layout--content">
+        <div class="content--header">
+
+        </div>
+
+        <!-- Insert your content -->
+        <div class="container index">
+            <h2 class="color-primary">Choose an option to get started</h2>
+            <div class="column column-2">
+
+                <div class="column--item">
+                    <a href="#" th:href="@{/loans}">
+                        <div class="panel">
+                            <h2 class="color-primary">Loans</h2>
+                            <p>View all loans</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="column--item">
+                    <a href="#" th:href="@{/assets}">
+                        <div class="panel">
+                            <h2 class="color-primary">Assets</h2>
+                            <p>View all assets</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="content--footer">
+            </div>
+        </div>
+    </div>
+
+    <div class="layout--footer">
+        <!-- Insert your footer -->
+    </div>
+</body>
+
+</html>

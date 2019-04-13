@@ -1,0 +1,137 @@
+// =========== Variables
+
+// Most of the variables are based on some kind of percentages to maintain stability and consistency.
+// So $variable-10 is small or light and $variable-100 is big or dark.
+
+$include-select2: false;
+
+// Paths
+$imagepath: '../images' !default;
+$brandpath: '../images/logo.svg' !default;
+// Negative brand (for example white logo on dark background)
+$brandpath-negative: '../images/app-logo.svg' !default;
+
+// Set your own font
+$font-family-body: 'Ubuntu', sans-serif !default;
+$font-family-heading: 'Ubuntu', sans-serif !default;
+
+// The base font-size, all other elements will adjust to this value
+$font-size-base: 14px !default;
+
+$font-size-10: 0.8125rem !default;		// 11px
+$font-size-20: 0.9375rem !default;		// 13px
+$font-size-30: 1rem !default;			// 14px Default
+$font-size-40: 1.125rem !default;		// 16px
+$font-size-50: 1.375rem !default;		// 18px
+$font-size-60: 1.5rem !default;			// 22px
+
+// The grid columns will be used in the grid mixin, 48 is standard
+$grid-columns: 48 !default;
+
+// Adjust the website's maximum width.
+$max-width: 100% !default;
+
+// Use the spacing variable on margins and paddings
+$spacing: 1rem !default;
+$spacing-half: ($spacing / 2) !default;
+$spacing-double: ($spacing * 2) !default;
+$spacing-triple: ($spacing * 3) !default;
+$spacing-quadruple: ($spacing * 4) !default;
+
+// Adjust the border-radius
+$border-radius-10: 0.125rem !default;
+$border-radius-20: 0.313rem !default;
+
+// Variables for label width in forms
+$label-width-50: 40%;
+
+// Media queries
+// Adjust them to you needs or add more
+$breakpoint-05: 400px !default;
+$breakpoint-10: 600px !default;
+$breakpoint-20: 750px !default;
+$breakpoint-30: 1000px !default;
+$breakpoint-40: 1200px !default;
+$breakpoint-50: 1400px !default;
+
+// Z-index plan
+$z-index-10: 10 !default;
+$z-index-20: 20 !default;
+$z-index-30: 30 !default;
+$z-index-40: 40 !default;
+
+// Border radius
+$border-radius-10: 1px;
+$border-radius-20: 2px;
+$border-radius-30: 3px;
+$border-radius-40: 4px;
+$border-radius-50: 5px;
+
+// Colors
+// Add your own color variables.
+$primary: #2AACE3 !default; // Don't use this variable in other SCSS
+$secondary: #103558 !default; // Don't use this variable in other SCSS
+
+// Color primary
+$color-primary-10: lighten($primary, 15%);
+$color-primary-20: lighten($primary, 10%);
+$color-primary-30: lighten($primary, 5%);
+$color-primary-50: $primary; 
+$color-primary-60: darken($primary, 5%);
+$color-primary-70: darken($primary, 10%);
+
+// Color secondary
+$color-secondary-50: $secondary;
+$color-secondary-60: darken($secondary, 5%);
+$color-secondary-70: darken($secondary, 10%);
+
+//Color base
+$color-base-40: #333 !default;
+$color-base-50: #222 !default;
+$color-base-60: #111 !default;
+
+// Color neutral
+$color-neutral-10: #fff !default;
+$color-neutral-20: #eee !default;
+$color-neutral-30: #ddd !default;
+$color-neutral-40: #ccc !default;
+$color-neutral-50: #999 !default;
+$color-neutral-60: #777 !default;
+$color-neutral-70: #555 !default;
+$color-neutral-80: #444 !default;
+
+// Color basics
+$black: $color-base-50 !default;
+$white: $color-neutral-10 !default;
+
+// Color success
+$success: #03ab4a !default;
+$color-success-10: lighten($success, 62%);
+$color-success-20: lighten($success, 30%);
+$color-success-30: lighten($success, 20%);
+$color-success-50: $success; // Default
+$color-success-70: darken($success, 10%);
+
+// Color information
+$info: #2AACE3 !default;
+$color-info-10: lighten($info, 42%);
+$color-info-20: lighten($info, 30%);
+$color-info-30: lighten($info, 20%);
+$color-info-50: $info; // Default
+$color-info-70: darken($info, 10%);
+
+// Color warning
+$warning: #fdbb3e !default;
+$color-warning-10: lighten($warning, 32%);
+$color-warning-20: lighten($warning, 20%);
+$color-warning-30: lighten($warning, 10%);
+$color-warning-50: $warning; // Default
+$color-warning-70: darken($warning, 10%);
+
+// Color alert
+$alert: #dd3333 !default;
+$color-alert-10: lighten($alert, 42%);
+$color-alert-20: lighten($alert, 30%);
+$color-alert-30: lighten($alert, 20%);
+$color-alert-50: $alert; // Default
+$color-alert-70: darken($alert, 10%);

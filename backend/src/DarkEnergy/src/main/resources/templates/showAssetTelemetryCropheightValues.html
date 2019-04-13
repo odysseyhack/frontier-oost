@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+    <title>AMS| Coordinates from Asset</title>
+</head>
+<body class="layout-with-header layout-with-footer layout-with-sidebar">
+
+<div class="layout--header">
+    <!-- Insert your header -->
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+</div>
+
+
+<div class="layout--wrapper">
+
+    <div class="layout--sidebar">
+        <!-- Insert your sidebar -->
+        <div class="sidebar">
+            <div class="sidemenu">
+                <!-- Repeat for each menu -->
+                <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+            </div>
+            <!--/*/ <th:block th:include="fragments/backbutton :: backbutton"></th:block> /*/-->
+        </div>
+    </div>
+
+    <div class="layout--content">
+        <div class="content--header">
+        </div>
+
+
+        <!-- Insert your content -->
+        <div class="container">
+            <h2 class="color-primary">Cropheight value details of <span th:text="${asset.assetIdentifier}">assetidentifier</span>
+                on date
+                <span
+                        th:text="${#dates.format(ts, 'dd-MM-yyyy')}">ts</span></h2>
+
+
+            <div class="column">
+                <div class="column--item">
+                    <div class="panel">
+                        <div>
+                            <form class=" form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">0_10cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category0_10 / totalValue * 100} + '%'">
+                                            Asset Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">10_20cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category10_20 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">20-30cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category20_30 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">30-40cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category30_40 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">40-50cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category40_50 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">50-60cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category50_60 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">60_70cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category60_70 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">70_80cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category70_80 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">80_90cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category80_90 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">90_100cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category90_100 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">100_110cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category100_110 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">110_120cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.category110_120 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">>130cm:</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static"
+                                           th:text="${value.categoryBT_130 / totalValue * 100} + '%'">
+                                            Asset
+                                            Id</p>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="content--footer">
+        </div>
+    </div>
+</div>
+
+<div class="layout--footer">
+    <!-- Insert your footer -->
+</div>
+</body>
+</html>

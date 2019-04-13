@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+    <title>AMS| Assets</title>
+</head>
+
+
+<body class="layout-with-header layout-with-footer layout-with-sidebar">
+
+<div class="layout--header">
+    <!-- Insert your header -->
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+</div>
+
+
+<div class="layout--wrapper">
+
+    <div class="layout--sidebar">
+        <!-- Insert your sidebar -->
+        <div class="sidebar">
+            <div class="sidemenu">
+                <!-- Repeat for each menu -->
+                <!--/*/ <th:block th:include="fragments/menu :: menu"></th:block> /*/-->
+            </div>
+            <!--/*/ <th:block th:include="fragments/backbutton :: backbutton"></th:block> /*/-->
+        </div>
+    </div>
+
+    <div class="layout--content">
+        <div class="content--header">
+        </div>
+
+
+        <!-- Insert your content -->
+        <div class="container">
+            <div th:if="${not #lists.isEmpty(milestones)}">
+                <h2 class="color-primary">All Milestones from <span th:text="${asset.assetIdentifier}"></span></h2>
+
+
+                <div class="column">
+                    <div class="column--item">
+                        <div class="panel">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Extra Info</th>
+                                    <th>Expected completion Date</th>
+                                    <th>Expected GrowthInCentimeters</th>
+                                    <th>Payout amount</th>
+                                    <th>Completed</th>
+                                </tr>
+                                <tr th:each="milestone : ${milestones}">
+                                    <td th:text="${milestone.extraInfo}"></td>
+                                    <td th:text="${#dates.format(milestone.expectedCompletionDateTimestamp *1000 , 'dd-MM-yyyy')}"></td>
+                                    <td th:text="${milestone.growthInCentimeters}"></td>
+                                    <td th:text="${milestone.payoutAmount}"></td>
+                                    <td th:text="${milestone.completed}"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content--footer">
+        </div>
+    </div>
+</div>
+
+<div class="layout--footer">
+    <!-- Insert your footer -->
+</div>
+</body>
+</html>

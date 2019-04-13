@@ -1,0 +1,309 @@
+/* line 1, scss/_mdl_formula_viewer.scss */
+.center-model {
+  height: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 2000;
+  top: 50%;
+  width: 100%;
+}
+
+/* line 13, scss/_mdl_formula_viewer.scss */
+.formula-viewer {
+  max-width: 900px;
+  min-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  text-align: left;
+  padding: 20px;
+  overflow: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+/* line 29, scss/_mdl_formula_viewer.scss */
+.formula-viewer .formula-value {
+  width: 100%;
+  display: block;
+  margin-bottom: 2px;
+}
+/* line 34, scss/_mdl_formula_viewer.scss */
+.formula-viewer .period-date {
+  font-size: 11px;
+}
+/* line 37, scss/_mdl_formula_viewer.scss */
+.formula-viewer .contentnavbar {
+  width: auto;
+}
+
+/* line 42, scss/_mdl_formula_viewer.scss */
+.formula-info-icon {
+  position: absolute;
+  color: #333;
+  text-align: center;
+  border-radius: 50px;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px;
+  white-space: nowrap;
+}
+/* line 53, scss/_mdl_formula_viewer.scss */
+.formula-info-icon:hover {
+  color: #FFF;
+  background-color: #5a7cab;
+}
+/* line 57, scss/_mdl_formula_viewer.scss */
+.formula-info-icon:before {
+  font-family: "fonticon-formula";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e800';
+}
+/* line 77, scss/_mdl_formula_viewer.scss */
+.formula-info-icon .explain-text {
+  vertical-align: middle;
+  font-weight: normal;
+  display: none;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+/* line 87, scss/_mdl_formula_viewer.scss */
+.formulaBreadcrumb li {
+  display: inline-block;
+}
+
+/* line 92, scss/_mdl_formula_viewer.scss */
+.breadCrumb--formula {
+  display: block;
+  padding: 0;
+}
+/* line 96, scss/_mdl_formula_viewer.scss */
+.breadCrumb--formula ul {
+  display: block;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+}
+/* line 103, scss/_mdl_formula_viewer.scss */
+.breadCrumb--formula li {
+  background: url(img/Chevron.gif) no-repeat 100% 0;
+  display: inline-block;
+  margin: 0px 6px 0px 0;
+  overflow: hidden;
+  padding: 0px 10px 0px 0;
+  font-size: 10px;
+  line-height: 21px;
+}
+
+/* line 114, scss/_mdl_formula_viewer.scss */
+.formula-display {
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  padding-top: 15px;
+  width: 100%;
+}
+/* line 121, scss/_mdl_formula_viewer.scss */
+.formula-display .formula-element {
+  display: inline-block;
+  border-radius: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  vertical-align: middle;
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+/* line 132, scss/_mdl_formula_viewer.scss */
+.formula-display .formula-element:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/* line 140, scss/_mdl_formula_viewer.scss */
+.formula-element span {
+  display: inline-block;
+  border-radius: 5px;
+}
+/* line 144, scss/_mdl_formula_viewer.scss */
+.formula-element .OPERATOR {
+  background-color: #575757;
+  color: #FFFFFF;
+  padding: 0px 7px;
+  font-weight: bold;
+  font-size: 15px;
+}
+/* line 153, scss/_mdl_formula_viewer.scss */
+.formula-element .VALUE, .formula-element .NUMBER {
+  background-color: #589bce;
+  color: white;
+  padding: 2px 4px;
+  margin-left: 3px;
+}
+/* line 159, scss/_mdl_formula_viewer.scss */
+.formula-element .VALUE.INPUT, .formula-element .NUMBER.INPUT {
+  padding: 5px 15px 5px 5px;
+}
+/* line 161, scss/_mdl_formula_viewer.scss */
+.formula-element .VALUE.INPUT input, .formula-element .NUMBER.INPUT input {
+  width: 100px;
+  padding: 2px;
+  overflow: hidden;
+  color: #333;
+  text-align: center;
+  line-height: 1.2rem;
+}
+/* line 170, scss/_mdl_formula_viewer.scss */
+.formula-element .VALUE.INPUT input[type=number]::-webkit-inner-spin-button,
+.formula-element .VALUE.INPUT input[type=number]::-webkit-outer-spin-button, .formula-element .NUMBER.INPUT input[type=number]::-webkit-inner-spin-button,
+.formula-element .NUMBER.INPUT input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  margin: 0;
+}
+/* line 176, scss/_mdl_formula_viewer.scss */
+.formula-element .VALUE.INPUT input[type="number"], .formula-element .NUMBER.INPUT input[type="number"] {
+  -moz-appearance: textfield !important;
+}
+/* line 183, scss/_mdl_formula_viewer.scss */
+.formula-element .BEGIN_ARGUMENT_LIST, .formula-element .BEGIN_PARENTHESIZED_EXPRESSION {
+  font-size: 25px;
+  margin-top: -5px;
+}
+/* line 187, scss/_mdl_formula_viewer.scss */
+.formula-element .END_ARGUMENT_LIST, .formula-element .END_PARENTHESIZED_EXPRESSION {
+  font-size: 25px;
+  margin-top: -5px;
+}
+/* line 191, scss/_mdl_formula_viewer.scss */
+.formula-element .SEPERATOR {
+  font-size: 25px;
+  margin-top: -5px;
+}
+/* line 195, scss/_mdl_formula_viewer.scss */
+.formula-element .BEGIN_CELL_SPECIFIER {
+  padding: 3px 5px;
+  background-color: #CCCCCC;
+}
+/* line 199, scss/_mdl_formula_viewer.scss */
+.formula-element .END_CELL_SPECIFIER {
+  padding: 3px 5px;
+  background-color: #CCCCCC;
+}
+/* line 203, scss/_mdl_formula_viewer.scss */
+.formula-element .COLUMN {
+  padding: 3px 7px;
+  background-color: #f9dcb3;
+}
+/* line 207, scss/_mdl_formula_viewer.scss */
+.formula-element .VARIABLE, .formula-element .CONSTANT {
+  padding: 5px;
+  background-color: #d1e4f2;
+  margin-bottom: 2px;
+  color: #333;
+}
+/* line 213, scss/_mdl_formula_viewer.scss */
+.formula-element .FUNCTION {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 2px;
+}
+/* line 217, scss/_mdl_formula_viewer.scss */
+.formula-element .FUNCTION > div > .IDENTIFIER {
+  background-color: #575757;
+  color: #FFFFFF;
+  padding: 5px 7px;
+  font-weight: bold;
+  font-size: inherit;
+}
+/* line 225, scss/_mdl_formula_viewer.scss */
+.formula-element .operator-seperator {
+  display: block;
+  border-bottom: 2px black solid;
+  margin: 3px 0px;
+}
+/* line 230, scss/_mdl_formula_viewer.scss */
+.formula-element .period-column {
+  font-size: 10px;
+}
+
+/* line 236, scss/_mdl_formula_viewer.scss */
+.grid.formula-toolbar {
+  background-color: papayawhip;
+}
+/* line 239, scss/_mdl_formula_viewer.scss */
+.grid.formula-toolbar .grid-24 {
+  padding: 0.5rem 1rem 0.25rem;
+}
+
+/* line 2, scss/_demo.scss */
+.answer button {
+  display: table-cell;
+}
+
+/* line 7, scss/_demo.scss */
+.header .header--top .header--usermenu .usermenu-item-reset .usermenu-icon::before {
+  content: "\f079";
+}
+
+/* line 11, scss/_demo.scss */
+.para-def {
+  margin-bottom: 1rem;
+}
+
+/* line 15, scss/_demo.scss */
+td.label-prog, td.percen {
+  padding-right: 2rem;
+}
+
+/* line 19, scss/_demo.scss */
+td.full {
+  width: 100%;
+}
+
+/* line 23, scss/_demo.scss */
+#resultpanel {
+  display: none;
+}
+
+textarea {
+  background-color: lightyellow;
+}
+
+#overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#loading {
+    width: 50px;
+    height: 57px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -28px 0 0 -25px;
+}
