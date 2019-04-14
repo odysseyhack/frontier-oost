@@ -44,12 +44,14 @@ public class MgvoController
         return null;
     }
 
-    @RequestMapping(value = "/myGvo/payout/zipCodeAddress/{zipCodeAddress}", method = RequestMethod.POST)
-    public boolean mintMyGvoToken(@RequestParam String zipCodeAddress, @RequestParam Integer tokenId) {
-        if (tokenId >= 0) {
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping(value = "/myGvo/payout/zipCodeAddress", method = RequestMethod.POST)
+    public boolean mintMyGvoToken(@RequestParam String zipCodeAddress, @RequestParam String tokenId) {
+        int tokenIdInt = Integer.valueOf(tokenId);
+        if (tokenIdInt >= 0) {
             try
             {
-                return myGvoService.mintToZipCodeAddress(zipCodeAddress, tokenId);
+                return myGvoService.mintToZipCodeAddress(zipCodeAddress, tokenIdInt);
 
             }
             catch (Exception e)
@@ -60,6 +62,7 @@ public class MgvoController
         return false;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/loadMyGvosFromSmartContract", method = RequestMethod.GET)
     public Iterable<MgvoObject> loadTokensFromSmartContract() {
         try

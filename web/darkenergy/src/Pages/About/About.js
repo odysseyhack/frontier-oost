@@ -5,9 +5,14 @@ export class About extends Component {
   constructor(props){
     super(props);
     this.props = props;
-    this.state = { step: 5 };
-    console.log(this.state);
-    setTimeout(this.stepIterater, 1000);
+    this.state = { step: 1 };
+    this.stepper = this.stepper.bind(this);
+    setInterval(this.stepper, 2000);
+  }
+
+  stepper() {
+    this.state.step++;
+    this.forceUpdate();
   }
 
   cardOne() {
@@ -21,15 +26,23 @@ export class About extends Component {
           <h5 style="color: WHITE">Step one</h5>
         </div>
         <div className="card-body text-center">
-
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-          </div>
+          { this.state.step > 1 ? this.iconDone() : this.loader()}
           <p> Searching neighbours
             </p>
         </div>
       </div>
     )
+  }
+  loader() {
+    return (
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    );
+  }
+
+  iconDone() {
+    return <p class="fas fa-3x fa-check big-check"></p>;
   }
   cardTwo() {
     var display;
@@ -42,10 +55,7 @@ export class About extends Component {
           <h5 style="color: WHITE">Step two</h5>
         </div>
         <div className="card-body text-center">
-
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-          </div>
+          { this.state.step > 2 ? this.iconDone() : this.loader()}
           <p> Identifying solar panels
             </p>
         </div>
@@ -64,9 +74,7 @@ export class About extends Component {
         </div>
         <div className="card-body text-center">
 
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-          </div>
+            { this.state.step > 3 ? this.iconDone() : this.loader()}
           <p> Fetch weather report
             </p>
         </div>
@@ -85,9 +93,7 @@ export class About extends Component {
         </div>
         <div className="card-body text-center">
 
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-          </div>
+            { this.state.step > 4 ? this.iconDone() : this.loader()}
           <p> Determing missing yield
             </p>
         </div>
@@ -106,9 +112,7 @@ export class About extends Component {
         </div>
         <div className="card-body text-center">
 
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-          </div>
+            { this.state.step > 5 ? this.iconDone() : this.loader()}
           <p> Calculating certificates
             </p>
         </div>
@@ -116,13 +120,7 @@ export class About extends Component {
     )
   }
 
-  stepIterater() {
-    // console.log(this.state.step);
-    console.log(this.state.step);
-  }
-
   stepVisualer() {
-
     return (
       <div className="row">
         <div className="col">{this.cardOne()}</div>
@@ -134,7 +132,34 @@ export class About extends Component {
     )
   }
 
+  handleOnClick() {
+    fetch('http://localhost:8080/myGvo/payout/zipCodeAddress/?zipCodeAddress=7411MZ&tokenId=555', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(result => result.json())
+    .then(beterresult => {
+      console.log(beterresult);
+    });
+  }
+
+  renderClaim() {
+    var step = this.state.step;
+    return (
+      <div className={`row text-center ${step > 5 ? "" : "display-none"}`} style="margin-top: 20px">
+        <div className="col-sm" style="background: #4CD964; margin-bottom: 20px;">
+          <h2 style="color: white">Found <strong>ONE</strong> certificate to claim</h2>
+          <button onClick={this.handleOnClick} type="button" class="btn btn-lg btn-info">Claim</button>
+        </div>
+      </div>
+    );
+  }
+
   render() {
+    var step = this.state.step;
     const table = (
         <table className="table">
           <thead>
@@ -151,46 +176,46 @@ export class About extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr className={step > 1 ? "" : "display-none"}>
               <td>7411MZ</td>
-              <td>1</td>
+              <td style={step > 1 ? "color: green" : ""}>1</td>
               <td>9</td>
-              <td>336</td>
-              <td>284</td>
-              <td>301</td>
+              <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
               <td>273</td>
               <td>251</td>
               <td>260</td>
             </tr>
-            <tr>
+            <tr style="background: #eee">
               <td>7411MZ</td>
               <td>5</td>
-              <td>16</td>
-              <td>336</td>
-              <td>284</td>
-              <td>301</td>
-              <td className="color-red">??</td>
-              <td className="color-red">??</td>
-              <td className="color-red">??</td>
+              <td style="color: GREEN;">{step > 2 ? "16" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
+              <td style="color: GREEN; font-weight: BOLD">{step > 4 ? "342" : ""}</td>
+              <td style="color: GREEN; font-weight: BOLD">{step > 4 ? "331" : ""}</td>
+              <td style="color: GREEN; font-weight: BOLD">{step > 4 ? "320" : ""}</td>
             </tr>
-            <tr>
+            <tr className={step > 1 ? "" : "display-none"} >
               <td>7411MZ</td>
-              <td>13</td>
-              <td>9</td>
-              <td>336</td>
-              <td>284</td>
-              <td>301</td>
+              <td style={step > 1 ? "color: green" : ""}>13</td>
+              <td style={step > 1 ? "color: green" : ""}>9</td>
+              <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
               <td>220</td>
               <td>208</td>
               <td>209</td>
             </tr>
-            <tr>
+            <tr className={step > 1 ? "" : "display-none"}>
               <td>7411MZ</td>
-              <td>83</td>
+              <td style={step > 1 ? "color: green" : ""}>83</td>
               <td>12</td>
-              <td>336</td>
-              <td>284</td>
-              <td>301</td>
+              <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
+              <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
               <td>300</td>
               <td>295</td>
               <td>289</td>
@@ -211,6 +236,7 @@ export class About extends Component {
             </div>
           </div>
             {this.stepVisualer()}
+            {this.renderClaim()}
         </div>
       </div>
     );
