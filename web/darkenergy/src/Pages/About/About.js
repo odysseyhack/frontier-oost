@@ -170,9 +170,9 @@ export class About extends Component {
               <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
-              <td>273</td>
-              <td>251</td>
-              <td>260</td>
+              <td>7,6 KWh</td>
+              <td>7,4 KWh</td>
+              <td>7,45 KWh</td>
             </tr>
             <tr style="background: #eee">
               <td>7411MZ</td>
@@ -181,9 +181,9 @@ export class About extends Component {
               <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
-              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "342" : "??"}</td>
-              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "331" : "??"}</td>
-              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "320" : "??"}</td>
+              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "7,88 KWh" : "??"}</td>
+              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "7,84 KWh" : "??"}</td>
+              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "7,80 KWh" : "??"}</td>
             </tr>
             <tr className={step > 1 ? "" : "display-none"} >
               <td>7411MZ</td>
@@ -192,9 +192,9 @@ export class About extends Component {
               <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
-              <td>220</td>
-              <td>208</td>
-              <td>209</td>
+              <td>7,5 KWh</td>
+              <td>7,52 KWh</td>
+              <td>7,55 KWh</td>
             </tr>
             <tr className={step > 1 ? "" : "display-none"}>
               <td>7411MZ</td>
@@ -203,9 +203,9 @@ export class About extends Component {
               <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
-              <td>300</td>
-              <td>295</td>
-              <td>289</td>
+              <td>7,8 KWh</td>
+              <td>7,72 KWh</td>
+              <td>7,79 KWh</td>
             </tr>
           </tbody>
         </table>
