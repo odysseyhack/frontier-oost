@@ -1,13 +1,14 @@
 import { Component } from "inferno";
+import { Link } from "inferno-router";
 import "./About.scss";
 
 export class About extends Component {
   constructor(props){
     super(props);
     this.props = props;
-    this.state = { step: 1 };
+    this.state = { step: -1 };
     this.stepper = this.stepper.bind(this);
-    setInterval(this.stepper, 2000);
+    setInterval(this.stepper, 4000);
   }
 
   stepper() {
@@ -75,7 +76,7 @@ export class About extends Component {
         <div className="card-body text-center">
 
             { this.state.step > 3 ? this.iconDone() : this.loader()}
-          <p> Fetch weather report
+          <p> Fetching weather report
             </p>
         </div>
       </div>
@@ -132,27 +133,13 @@ export class About extends Component {
     )
   }
 
-  handleOnClick() {
-    fetch('http://localhost:8080/myGvo/payout/zipCodeAddress/?zipCodeAddress=7411MZ&tokenId=555', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    .then(result => result.json())
-    .then(beterresult => {
-      console.log(beterresult);
-    });
-  }
-
   renderClaim() {
     var step = this.state.step;
     return (
       <div className={`row text-center ${step > 5 ? "" : "display-none"}`} style="margin-top: 20px">
         <div className="col-sm" style="background: #4CD964; margin-bottom: 20px;">
           <h2 style="color: white">Found <strong>ONE</strong> certificate to claim</h2>
-          <button onClick={this.handleOnClick} type="button" class="btn btn-lg btn-info">Claim</button>
+          <button type="button" class="btn btn-lg btn-info"><Link to="/">Go to prosumer dashboard</Link></button>
         </div>
       </div>
     );
@@ -194,14 +181,14 @@ export class About extends Component {
               <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
-              <td style="color: GREEN; font-weight: BOLD">{step > 4 ? "342" : ""}</td>
-              <td style="color: GREEN; font-weight: BOLD">{step > 4 ? "331" : ""}</td>
-              <td style="color: GREEN; font-weight: BOLD">{step > 4 ? "320" : ""}</td>
+              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "342" : "??"}</td>
+              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "331" : "??"}</td>
+              <td style={`font-weight: BOLD; color: ${step > 4 ? "GREEN" : "RED"}`}>{step > 4 ? "320" : "??"}</td>
             </tr>
             <tr className={step > 1 ? "" : "display-none"} >
               <td>7411MZ</td>
               <td style={step > 1 ? "color: green" : ""}>13</td>
-              <td style={step > 1 ? "color: green" : ""}>9</td>
+              <td>9</td>
               <td style="color: GREEN;">{step > 3 ? "336" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "284" : ""}</td>
               <td style="color: GREEN;">{step > 3 ? "301" : ""}</td>
@@ -232,7 +219,7 @@ export class About extends Component {
           </div>
           <div className="row text-center" style="">
             <div className="col-sm" style="background: #4CD964; margin-bottom: 20px;">
-              <h4 style="color: WHITE">Starting AI to fill in blank spots</h4>
+              <h4 style="color: WHITE">{this.state.step >= 0 ? "Starting AI to fill in blank spots" : "" }</h4>
             </div>
           </div>
             {this.stepVisualer()}

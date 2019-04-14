@@ -5,13 +5,14 @@ export class Home extends Component {
   constructor(props){
     super(props);
     this.props = props;
-    this.state = { 
+    this.state = {
       powerOptions: {
         solarPanels: true,
         windenergy: false,
         smartEnergyMeter: true,
         Outlets: true
-      }, 
+      },
+      claimed: false,
       item: { Horsepower: 0} };
 
     //bindings
@@ -19,6 +20,7 @@ export class Home extends Component {
     this.toggleWindEnergy = this.toggleWindEnergy.bind(this);
     this.toggleSmartEnergyMeter = this.toggleSmartEnergyMeter.bind(this);
     this.toggleOutlets = this.toggleOutlets.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   toggleSolarEnergy(e) {
@@ -47,6 +49,31 @@ export class Home extends Component {
     powerOptions.Outlets = !powerOptions.Outlets
 
     this.setState({powerOptions: powerOptions})
+  }
+
+  claimButton() {
+    var claimed = this.state.claimed;
+    if (claimed) {
+      return <div>Claimed on 14-04-2019</div>;
+    }
+    return (
+      <button onClick={this.handleOnClick} type="button" class="btn btn-lg btn-success">Claim tokens</button>
+    );
+  }
+
+  handleOnClick() {
+    fetch('http://localhost:8080/myGvo/payout/zipCodeAddress/?zipCodeAddress=7411MZ&tokenId=555', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(result => result.json())
+    .then(beterresult => {
+      this.state.claimed = true;
+      this.forceUpdate();
+    });
   }
 
   componentDidMount(){
@@ -87,7 +114,11 @@ export class Home extends Component {
             </div>
             <div class="col-sm">
               <p class="fas fa-medal big-icon__medal"></p>
-              <p><span class="primary-text"><strong>{this.state.item.Cylinders}</strong></span> <span class="secondary-text">Certificate(s)</span></p>
+              <p>
+                <span class="primary-text"><strong>{this.state.item.Cylinders / 4 }</strong></span>
+                <span class="secondary-text"> Certificate(s)</span>
+                {this.claimButton()}
+              </p>
             </div>
             <div class="col-sm">
               <p class="fas fa-leaf big-icon__green"></p>
@@ -127,7 +158,7 @@ export class Home extends Component {
 
             <div class="card mb-4 shadow-sm">
               <div class="card-header primary">
-                <h4 class="my-0 font-weight-normal">Smart energy meter</h4>
+                <h4 class="my-0 font-weight-normal">Smart meter</h4>
               </div>
               <div class="card-body">
                 <p className={this.getEnabledClassForIcons(this.state.powerOptions.smartEnergyMeter, "fas fa-tachometer-alt")}></p>

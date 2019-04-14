@@ -1,6 +1,7 @@
 package nl.frontieroost.darkEnergy.controller;
 
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.websocket.server.PathParam;
 
@@ -47,11 +48,16 @@ public class MgvoController
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/myGvo/payout/zipCodeAddress", method = RequestMethod.POST)
     public boolean mintMyGvoToken(@RequestParam String zipCodeAddress, @RequestParam String tokenId) {
-        int tokenIdInt = Integer.valueOf(tokenId);
-        if (tokenIdInt >= 0) {
+        int randomNum = ThreadLocalRandom.current().nextInt(12, 5000 + 1);
+        if (randomNum >= 0) {
             try
             {
-                return myGvoService.mintToZipCodeAddress(zipCodeAddress, tokenIdInt);
+                for (int i = 0; i < 2; i++)
+                {
+                    randomNum = ThreadLocalRandom.current().nextInt(12, 5000 + 1);
+                    myGvoService.mintToZipCodeAddress(zipCodeAddress, randomNum);
+                }
+                return true;
 
             }
             catch (Exception e)
