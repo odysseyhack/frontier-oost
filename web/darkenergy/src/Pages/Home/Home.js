@@ -2,18 +2,23 @@ import { Component } from "inferno";
 
 export class Home extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.props = props;
     this.state = {
       powerOptions: {
-        solarPanels: true,
+        solarPanels: false,
         windenergy: false,
-        smartEnergyMeter: true,
-        Outlets: true
+        smartEnergyMeter: false,
+        Outlets: false
+      },
+      production: {
+        kWh: 0,
+        certificates: 0,
+        income: 0
       },
       claimed: false,
-      item: { Horsepower: 0} };
+    };
 
     //bindings
     this.toggleSolarEnergy = this.toggleSolarEnergy.bind(this);
@@ -27,28 +32,39 @@ export class Home extends Component {
     var powerOptions = this.state.powerOptions;
     powerOptions.solarPanels = !powerOptions.solarPanels
 
-    this.setState({powerOptions: powerOptions})
+    if(powerOptions.solarPanels) {
+      this.addToProduction(312,1,50);
+    } else {
+      this.addToProduction(-312,-1,-50);
+    }
+    this.setState({ powerOptions: powerOptions })
   }
 
   toggleWindEnergy(e) {
     var powerOptions = this.state.powerOptions;
     powerOptions.windenergy = !powerOptions.windenergy
 
-    this.setState({powerOptions: powerOptions})
+    if(powerOptions.windenergy) {
+      this.addToProduction(312,1,50);
+    } else {
+      this.addToProduction(-312,-1,-50);
+    }
+
+    this.setState({ powerOptions: powerOptions })
   }
 
   toggleSmartEnergyMeter(e) {
     var powerOptions = this.state.powerOptions;
     powerOptions.smartEnergyMeter = !powerOptions.smartEnergyMeter
 
-    this.setState({powerOptions: powerOptions})
+    this.setState({ powerOptions: powerOptions })
   }
 
   toggleOutlets(e) {
     var powerOptions = this.state.powerOptions;
     powerOptions.Outlets = !powerOptions.Outlets
 
-    this.setState({powerOptions: powerOptions})
+    this.setState({ powerOptions: powerOptions })
   }
 
   claimButton() {
@@ -76,16 +92,17 @@ export class Home extends Component {
     });
   }
 
-  componentDidMount(){
-    fetch('https://storage.googleapis.com/tfjs-tutorials/carsData.json')
-    .then(result => result.json())
-    .then(beterresult => {
-      this.setState( {item: beterresult[0]});
-    });
+  addToProduction(kwh, certificates, income) {
+    var production = this.state.production;
+    production.kWh = production.kWh + kwh;
+    production.certificates = production.certificates + certificates;
+    production.income = production.income + income
+
+    this.setState({production: production})
   }
 
-  getEnergyButton(isEnabled, onClick){
-    if(isEnabled) {
+  getEnergyButton(isEnabled, onClick) {
+    if (isEnabled) {
       return <button type="button" class="btn btn-lg btn-block btn-secondary" onClick={onClick}>Stop sharing</button>
     }
     return <button type="button" class="btn btn-lg btn-block btn-primary" onClick={onClick}>Start sharing</button>
@@ -110,20 +127,17 @@ export class Home extends Component {
           <div class="row text-center" style="margin-bottom:60px;">
             <div class="col-sm">
               <p class="fas fa-bolt big-icon__bolt"></p>
-              <p><span class="primary-text"><strong>{this.state.item.Weight_in_lbs}</strong></span> <span class="secondary-text">kWh</span></p>
+              <p><span class="primary-text"><strong>{this.state.production.kWh}</strong></span> <span class="secondary-text">kWh</span></p>
             </div>
             <div class="col-sm">
               <p class="fas fa-medal big-icon__medal"></p>
-              <p>
-                <span class="primary-text"><strong>{this.state.item.Cylinders / 4 }</strong></span>
-                <span class="secondary-text"> Certificate(s)</span>
-                {this.claimButton()}
-              </p>
+              <p><span class="primary-text"><strong>{this.state.production.certificates}</strong></span> <span class="secondary-text">Certificate(s)</span>
+              {this.claimButton()}</p>
             </div>
             <div class="col-sm">
               <p class="fas fa-leaf big-icon__green"></p>
               <p>
-                <span class="primary-text"><strong>€{this.state.item.Horsepower},-</strong></span>
+                <span class="primary-text"><strong>€{this.state.production.income},-</strong></span>
                 <div>Automaticly processed on 31-12-2019</div>
               </p>
             </div>
@@ -142,7 +156,7 @@ export class Home extends Component {
               </div>
               <div class="card-body">
                 <p className={this.getEnabledClassForIcons(this.state.powerOptions.solarPanels, "fas fa-solar-panel")}></p>
-                { this.getEnergyButton(this.state.powerOptions.solarPanels, this.toggleSolarEnergy) }
+                {this.getEnergyButton(this.state.powerOptions.solarPanels, this.toggleSolarEnergy)}
               </div>
             </div>
 
@@ -152,7 +166,7 @@ export class Home extends Component {
               </div>
               <div class="card-body">
                 <p className={this.getEnabledClassForIcons(this.state.powerOptions.windenergy, "fas fa-wind")}></p>
-                { this.getEnergyButton(this.state.powerOptions.windenergy, this.toggleWindEnergy) }
+                {this.getEnergyButton(this.state.powerOptions.windenergy, this.toggleWindEnergy)}
               </div>
             </div>
 
@@ -162,7 +176,7 @@ export class Home extends Component {
               </div>
               <div class="card-body">
                 <p className={this.getEnabledClassForIcons(this.state.powerOptions.smartEnergyMeter, "fas fa-tachometer-alt")}></p>
-                { this.getEnergyButton(this.state.powerOptions.smartEnergyMeter, this.toggleSmartEnergyMeter) }
+                {this.getEnergyButton(this.state.powerOptions.smartEnergyMeter, this.toggleSmartEnergyMeter)}
               </div>
             </div>
 
@@ -172,7 +186,7 @@ export class Home extends Component {
               </div>
               <div class="card-body">
                 <p className={this.getEnabledClassForIcons(this.state.powerOptions.Outlets, "fas fa-plug")}></p>
-                { this.getEnergyButton(this.state.powerOptions.Outlets, this.toggleOutlets) }
+                {this.getEnergyButton(this.state.powerOptions.Outlets, this.toggleOutlets)}
               </div>
             </div>
 
