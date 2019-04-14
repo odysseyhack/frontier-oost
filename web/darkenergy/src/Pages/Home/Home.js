@@ -72,9 +72,11 @@ export class Home extends Component {
     if (claimed) {
       return <div>Claimed on 14-04-2019</div>;
     }
+    if (this.state.production.kWh > 0) {
     return (
       <button onClick={this.handleOnClick} type="button" class="btn btn-lg btn-success">Claim tokens</button>
     );
+  }
   }
 
   handleOnClick() {
@@ -116,8 +118,11 @@ export class Home extends Component {
     return (
       <div className="page animated fadeIn faster">
         <div className="container">
-
-          <div className="row text-center" style="margin-top:60px;margin-bottom:60px;">
+          <div className="text-center">
+            <p style="margin-bottom: 0">Address: 0x85e4317daE7C3713050CE14f1B0255Fc91e79E6E</p>
+            <p>MyGvo Tokens: {this.state.claimed ? 2 : 0}</p>
+          </div>
+          <div className="row text-center" style="margin-top:40px;margin-bottom:60px;">
             <div className="col-sm">
               <h1><strong>My proceeds</strong></h1>
               <h5>Year 2019</h5>
